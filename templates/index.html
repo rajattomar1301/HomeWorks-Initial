@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% block title %}HomeWorks{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+  <!-- #Let's Begin -->
+  <body>
+
+    <!-- #Hero Section -->
+    <div class="section section__hero" id="index-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m7">
+            <h1 class="header">HomeWorks</h1>
+            <h3 class="header">Get Solving!</h3>
+            <h5 class="header">A unified platform for teachers and students to submit and grade homeworks.</h5> 
+          </div>
+          <div class="col s12 m5 gorilla"> </div>
+        </div>
+        <div class="row center">
+            <a id="cta__main" href="/register/" class="btn btn-large blue darken-4">I'd Like to Learn More &raquo;</a>
+        </div>
+      </div>
+    </div>
+
+ 
+
+    <!-- #Big/Flow Text -->
+    <div id="why" class="container">
+      <div id="because-I-do-everything" class="section section__bigflow">
+        
+        <h2 class="center">Why Use HomeWorks?</h2>
+        <p class="flow-text">It is a platform which you can use to submit your homeworking assignments and get notified of the grades that your teacher on the same platform gives you </p>
+        
+      </div>
+    </div>
+
+
+
+    <!-- #More Grid -->
+    <div class="container">
+      <div class="section section__more-grid">
+        <!-- Start of Three -->
+        <div class="row">
+          <h2 class="center">6 Reasons Right Here</h2>
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-editor-format-paint"></i></h2>
+              <h5 class="center">You Are Awesome!</h5>
+              <p class="light">Because your are here and you are a technological person who will like to manage their tiring homeworks with a click </p>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-action-thumb-up"></i></h2>
+              <h5 class="center">We Are Awesome</h5>
+              <p class="light">We're constantly working towards making this platform better and better. </p>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-hardware-phonelink"></i></h2>
+              <h5 class="center">It's easy</h5>
+              <p class="light">Get notified with an email whenever your professor uploads a new homework and just submit it using jpegs or pdfs </p>
+            </div>
+          </div>
+        </div> 
+        <!-- End of Three -->
+        <div class="row">
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-action-visibility"></i></h2>
+              <h5 class="center">It's 24X7</h5>
+              <p class="light">No need to worry about going to your institution to submit your homework on deadline. Just send it using the platform and chillax </p>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-content-create"></i></h2>
+              <h5 class="center">Nature Friendly</h5>
+              <p class="light"> Cause we support pdfs and you don't have to use the precious papers in doing your homework.</p>
+            </div>
+          </div>
+          <div class="col s12 m12 l4">
+            <div class="icon-block">
+              <h2 class="center"><i class="mdi-editor-attach-money"></i></h2>
+              <h5 class="center">Managability</h5>
+              <p class="light">Teachers don't have to worry about taking a hell lot of assignments home instead they can view the homework online and keep track of students
+              who have not submitted the homework and grade the one's who have :) </p>
+            </div>
+          </div>
+        </div>
+        <!-- End of Six (Row) -->
+      </div>
+    </div>
+    
+    <!-- #FAQ -->
+    <div id="faq" class="section section__faq">
+      <div class="container">
+
+        <h2 class="center">FAQs</h2>
+        <ul class="collapsible center" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header"><p class="flow-text">Who runs this platform?</p></div>
+            <div class="collapsible-body"><p>Technically nobody because it's not out yet.</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><p class="flow-text">Are there any charges?</p></div>
+            <div class="collapsible-body"><p>Nah! we like to keep it simple and free because who wants to pay to submit their homework anyways :)</p></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><p class="flow-text">Is my homework safe?</p></div>
+            <div class="collapsible-body"><p>Absolutely not :P.</p></div>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+
+
+
+    <!-- #Contact Section -->
+    <div id="contact-form" class="section section__contact">
+      <div class="container">
+        <div class="row">
+        <h2 class="center">Have any questions?</h2>
+          <form class="col s12 l6 card z-depth-3" action="/send-contact-email/" method="POST" id="form-element" >
+            <div class="row">
+              <h4 class="center">Here's What I Need: <br /> <span class="underline">Three Fields</span></h4>
+              <div class="input-field | col s12">
+                <input id="firstName" type="text" class="validate" name="name" >
+                <label for="firstName">Name <span class="required">(required)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field | col s12">
+                <input id="company" type="text" name="phone" value="">
+                <label for="company">Phone <span class="optional" >(optional)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field | col s12">
+                <input id="email" type="email" class="validate" name="email" >
+                <label for="email">Email <span class="required">(required)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <select name="regard">
+                  <option value="help!" selected>help!</option>
+                  <option value="I have more questions!">I have more questions!</option>
+                </select> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" name="query"></textarea>
+                <label for="textarea1">Comments <span class="required">(required)</span></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <button class="btn btn-large" type="submit" id="send_mail">Submit</button>
+              </div>
+              <span id="email_message"></span>
+            </div>
+          </form>
+          <!-- End of the form -->
+          <div class="col l6 hide-on-med-and-down">
+            <div class="hire-notes center">
+              <h4>In closing...</h4>
+              <div class="icon-container">
+                <i class="medium mdi-action-extension"></i> <br />
+                <h5>Use this form</h5>
+              </div>
+              <p>If you have any questions you would like to ask our team please contact us using the adjacent form </p>
+              <div class="icon-container">
+                <i class="medium mdi-toggle-check-box"></i> <br />
+                <h5>I hope you will like us</h5>
+              </div>
+              <p>Please give our website a shot and we guarantee you'll like it. If you don't, well then you can leave us no hard feelings ;) </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- #Footer, son. -->
+    <footer class="page-footer | grey lighten-2 | valign-wrapper">
+      <div class="container valign">
+        <div class="row">
+          <div class="col s12 m6 valign">   
+            <h5 class="center-align">About the Site</h5>
+            <p class="center-align">
+                The front end was built using the <a href="http://materializecss.com">Materialize</a> framework, and the back end was built with <a href="www.python.com" target="_blank">Python</a>. Coded with &hearts; by Rajat Tomar</a>. No PHP was harmed in the making of this production.
+            </p>
+        </div>
+        <div class="col s12 m6 valign">   
+            <h5 class="center-align">Give Me a Shout!</h5>
+            <p class="center-align">
+                <a href="">rajattomar1301@gmail.com</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+    </body>
+{% endblock %}

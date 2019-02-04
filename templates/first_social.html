@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+{% block content %}
+<style>
+div.registform {
+    position: absolute;
+    width: 45%;
+    padding: 10px;
+    height: 80%;
+    left: 20%;
+    border: black;
+}
+</style>
+<div class="cont">
+<div class="registform">
+<center><h2> Please enter your details </h2></center>
+<p>Fill out the form and get started instantly </p>
+<p><strong>Note: You won't be allowed to do anything on this platform until and unless you fill these details.</strong></p>
+<br>
+
+<form method="POST">
+   		<div class="input-field col s12">
+   			<i class="material-icons prefix">clear_all</i>
+    	<select name="standard">
+      	<option value="" disabled selected>Choose your standard</option>
+      	<option value="1">Class 1</option>
+      	<option value="2">Class 2</option>
+      	<option value="3">Class 3</option>
+      	<option value="4">Class 4</option>
+      	<option value="5">Class 5</option>
+      	<option value="6">Class 6</option>
+      	<option value="7">Class 7</option>
+      	<option value="8">Class 8</option>
+      	<option value="9">Class 9</option>
+      	<option value="10">Class 10</option>
+      	<option value="11">Class 11</option>
+      	<option value="12">Class 12</option>
+    	</select>
+    	<label>Standard</label>
+  		</div>
+		<div class="input-field col s12">
+          <i class="material-icons prefix">school</i>
+          <input id="icon_prefix" type="text" name="section" class="validate">
+          <label for="icon_prefix">Section</label>
+        </div>
+		<div class="input-field col s12">
+          <i class="material-icons prefix">account_balance</i>
+          <input id="icon_prefix" type="text" name="school" class="validate">
+          <label for="icon_prefix">School</label>
+        </div>
+    <p>
+      <input type="checkbox" class="filled-in" id="filled-in-box" name="teacher" checked="checked" />
+      <label for="filled-in-box">Are You A Teacher?</label>
+    </p>
+
+
+
+    <div class="g-recaptcha" data-sitekey="6LeshgcUAAAAAIsnJS-9ZjGAOTjy-6yO2QjHpXQA"></div>
+   <br>
+  <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Complete My registration!
+    <i class="material-icons right">send</i>
+  </button>
+        
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

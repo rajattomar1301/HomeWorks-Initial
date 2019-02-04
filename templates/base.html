@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>{{ "HomeWork" }} &ndash;  {% block title %}Home{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/materialize.min.css" />
+        <link href="/static/css/style.min.css"       type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="/static/node_modules/material-design-icons-iconfont/dist/material-design-icons.css">
+    </head>
+<style>
+div.cont {
+    padding: 25px;
+    width: 90%;
+}
+</style>
+
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        {% block head %}{% endblock %}
+
+
+  <nav>
+    <div class="nav-wrapper blue darken-4">
+      <a href="/" class="brand-logo center">Dewan HomeWork</a>
+        {% if not logged_in%}
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="{{ url_for('register')}}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+    	</ul>
+    	<ul id="nav-mobile" class="right hide-on-med-and-down">
+    		<li><a href= "/">Home</a></li>
+    	</ul>
+        {% endif %}
+        {% if logged_in and user.isATeacher %}
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        	<li><a href="{{ url_for('logout') }}">Hi! {{ user.name }} | Logout</a></li>
+       	</ul>
+       	<ul id="nav-mobile" class="left hide-on-med-and-down">
+        	<li><a href="{{ url_for('teacher_homework')}}">Upload HomeWork</a></li>
+        	<li><a href="{{ url_for('teacher_view_homework')}}">View Homeworks</a></li>
+            <li><a href="{{ url_for('dashboard')}}">Dashboard</a></li>
+    	</ul>
+        {% endif %}
+        {% if logged_in and not user.isATeacher %}
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        	<li><a href="{{ url_for('logout') }}">Hi! {{ user.name }} | Logout</a></li>
+       	</ul>
+       	<ul id="nav-mobile" class="left hide-on-med-and-down">
+        	<li><a href="{{ url_for('student_view_homework')}}">View Current HomeWork</a></li>
+        	<li><a href="{{ url_for('student_view_submitted')}}">View Submitted HomeWork</a></li>
+		<li><a href="{{ url_for('student_view_grades')}}">View Marks</a></li>
+            <li><a href="{{ url_for('dashboard')}}">Dashboard</a></li>
+    	</ul>
+        {% endif %}
+
+
+    </div>
+  </nav>
+            {% block content %}{% endblock %}
+        <body>
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/materialize.min.js"></script>
+        <script src="/static/js/jquery.timeago.min.js"></script>
+<script>
+
+  $(document).ready(function() {
+    $('select').material_select();
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+  });
+            
+</script>
+        </body>
+        <script>
+        $(function() {
+            $("abbr.time[title='1970-01-01 00:00:00']").attr("title", "").removeClass("time").html("None");
+            $("abbr.time").timeago();
+            $('.button-collapse').sideNav();
+        });
+        </script>
+        <script id="toasts" type="text/javascript">
+            {% for message in get_flashed_messages() %}
+                Materialize.toast({{ message | tojson }}, 4000, 'rounded', 'blue');
+            {% endfor %}
+        </script>
+    
+        {% block postscript %}
+        {% endblock %}
+    
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}View Homework{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<body>
+	<div class="cont">
+<h1><b>HomeWorks by {{ user.name}}</b></h1>
+{% for homework in homeworks %}
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">assignment</i>{{ homework.name }} ({{ homework.subject }})</div>
+      <div class="collapsible-body">
+      	<span>
+      		<p>
+      		<p>{{ homework.description }}</p>
+      		<br>
+      		Class: {{ homework.meantfor }}
+      		<br>
+            Section: {{ homework.meantforsection }} 
+            <br>
+            Deadline: {{ homework.deadline }}
+            <br>
+         	File: <a href='/showfiles/homework/{{ homework.filename}}/' target="_blank">{{ homework.originalname }} </a>
+            <br>
+           <a href="/teacher-view-students/{{ homework.id }}/" target="_blank">Show Students</a>
+           <br>
+
+            <a href="/teacher-delete-homework/{{ homework.id }}/">Delete HomeWork</a>
+
+
+        </p>
+      </span>
+  	</div>
+    </li>
+  </ul>
+
+
+{% endfor %}
+</div>
+</body>
+
+
+{% endblock %}

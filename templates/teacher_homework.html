@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Submit Homework{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });   
+        	
+</script>
+<style type="text/css">
+div.container{
+	width: 70%;
+}
+</style>
+<div class="cont">
+<div class="container">
+<h1><b>Upload Homework</b></h1>
+<form method="POST" enctype="multipart/form-data">
+
+		<div class="input-field col s12">
+          <i class="material-icons prefix">business</i>
+          <input id="icon_prefix" type="text" name="name" class="validate">
+          <label for="icon_prefix">Name</label>
+        </div>
+
+
+
+
+
+     	<div class="input-field col s12">
+     	<i class="material-icons prefix">clear_all</i>
+    	<select name="meantfor">
+      	<option value="" disabled selected>Choose the targeted standard</option>
+      	<option value="1">Class 1</option>
+      	<option value="2">Class 2</option>
+      	<option value="3">Class 3</option>
+      	<option value="4">Class 4</option>
+      	<option value="5">Class 5</option>
+      	<option value="6">Class 6</option>
+      	<option value="7">Class 7</option>
+      	<option value="8">Class 8</option>
+      	<option value="9">Class 9</option>
+      	<option value="10">Class 10</option>
+      	<option value="11">Class 11</option>
+      	<option value="12">Class 12</option>
+    	</select>
+    	<label>Standard</label>
+  		</div>
+
+ 		<div class="input-field col s12">
+          <i class="material-icons prefix">assignment</i>
+          <input id="icon_prefix" type="text" name="meantforsection" class="validate">
+          <label for="icon_prefix">Meant For Section</label>
+        </div>
+
+		<div class="input-field col s12">
+          <i class="material-icons prefix">book</i>
+          <input id="icon_prefix" type="text" name="subject" class="validate">
+          <label for="icon_prefix">Subject</label>
+        </div>
+
+  
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix2" name="description" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Description</label>
+        </div>
+
+          <i class="material-icons small" id="deadline">av_timer</i> Due By Midnight Of
+  <input type="text" class="datepicker" name="deadline">
+
+ 	<div class="file-field input-field">
+      <div class="btn blue darken-4">
+        <span>File</span>
+        <input type="file" name="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+
+      </div>
+    </div>
+
+
+
+
+    <div class="g-recaptcha" data-sitekey="6LeshgcUAAAAAIsnJS-9ZjGAOTjy-6yO2QjHpXQA"></div>
+   <br>
+  <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Upload HomeWork
+    <i class="material-icons right">send</i>
+  </button>
+        
+
+
+
+
+
+</form> 
+</div>
+</div>
+
+{% endblock %}

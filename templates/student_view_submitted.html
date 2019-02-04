@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}View Homework{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<body>
+	<div class="cont">
+<h1>{{ user.name }}'s Submission</h1>
+{% for homework in homeworks %}
+{% if homework.student in submitted%}
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">assignment</i>{{ homework.name }}  By {{ homework.teachername }} ({{ homework.subject }})</div>
+      <div class="collapsible-body">
+      	<span><p>
+      		<p>{{ homework.description }}</p>
+      		<br>
+            Deadline: {{ homework.deadline }}
+            <br>
+         	Teacher's File: <a href='/showfiles/homework/{{ homework.filename}}/' target="_blank">{{ homework.originalname }} </a>
+            <br>
+		   HomeWork You Submitted: <a href="/showfiles/submitted/{{ homework.filename1 }}">{{ homework.originalfilename1 }}</a>
+		   {% if homework.marks ==0 %}
+		   <br>
+		   <span class="green-text">Your teacher hasn't alloted marks yet.</span>
+		   {% else %}
+		   <br>
+		   Marks: <b>{{ homework.marks }}</b>
+		   <p>
+		   	{% endif %}
+
+
+        </p>
+      </span>
+  	</div>
+    </li>
+  </ul>
+
+{% endif%}
+{% endfor %}
+</div>
+</body>
+
+
+{% endblock %}

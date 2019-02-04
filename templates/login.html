@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+
+
+<style type="text/css">
+div.login{
+  width: 35%;
+  height: 75%;
+  margin-left: 35%;
+  margin-top: 5%;
+  border: 1px solid #EEE;
+  padding: 10px;
+}
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="login">
+<center><h1>Login</h1></center>
+<form class="col s12" method="post">
+            <div class='row'>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">email</i>
+                <input class='validate' type='email' name='email' id='email' />
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">lock</i>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Enter your password</label>
+              </div>
+              <label style='float: right;'>
+								<a class='pink-text' href='/reset-password/'><b>Forgot Password?</b></a>
+							</label>
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <br><br>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+              </div>
+            </center>
+          </form>
+<center><span style="border-radius:50%; border:solid black 1px;padding:5px">Or</span></center>
+<br>
+<a href="{{ url_for('facebook_login') }}"><img src="/static/img/fblogin.png" width="100%" height="65px"></a>
+<br>
+<br>
+<a href="{{ url_for('google_login') }}"><img src="/static/img/googlelogin.png" width="100%" height="65px"></a>
+</div>
+
+{% endblock %}

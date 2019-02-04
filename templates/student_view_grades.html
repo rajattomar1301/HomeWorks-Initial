@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}View Homework{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<body>
+	<div class="cont">
+<h1>{{ user.name }}'s Marks</h1>
+<table class="striped">
+        <thead>
+          <tr>
+              <th>HomeWork Name</th>
+              <th>Marks </th>
+          </tr>
+        </thead>
+        <tbody>
+{% for homework in homeworks %}
+
+
+        
+          <tr>
+            <td>{{ homework.name }} By {{ homework.teachername }} ({{ homework.subject }})</td>
+            {% if homework.marks == 0 %}
+
+            <td><span class="green-text"> Marks Not Alloted</span></td>
+            {% else %}
+            <td><b>{{ homework.marks }}</b></td>
+            {% endif %}
+          </tr>
+
+{% endfor %}
+        </tbody>
+      </table>
+</div>
+</body>
+
+
+{% endblock %}

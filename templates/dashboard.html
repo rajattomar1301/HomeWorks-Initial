@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<style type="text/css">
+	div.bordering{
+		  height: 500px;
+		  padding: 10px;
+		  border-radius: 4px;
+		  background: #01579b;
+	}
+</style>
+<script type="text/javascript">
+$('select').material_select();
+</script>
+<div class="cont">
+
+    <div class="row">
+        <div class="card-panel blue darken-1">
+          <span class="white-text"><h1><span class="white-text">Hi! {{ user.name }}</span></h1>
+          </span>
+        </div>
+      </div>
+{% if user.isATeacher%}
+    <div class="row">
+        <div class="card-panel pink lighten-1">
+          <span class="white-text"><h4><span class="white-text">You're currently a teacher on our platform.</span></h4>
+          </span>
+        </div>
+    </div>
+{% endif %}
+{% if not user.isATeacher %}
+    <div class="row">
+        <div class="card-panel pink lighten-1">
+          <span class="white-text"><h4><span class="white-text">You're currently a student on our platform.</span></h4>
+          </span>
+        </div>
+    </div>
+{% endif %}
+{% if not user.emailconf%}
+    <div class="row">
+        <div class="card-panel yellow darken-4">
+          <span class="white-text"><h5>Your email id is not confirmed please do so by checking your email: {{ user.email }}</h5>
+          </span>
+        </div>
+      </div>
+{% endif %}
+
+{% if user.emailconf%}
+    <div class="row">
+        <div class="card-panel yellow darken-4">
+          <span class="white-text"><h5>Your email id is <strong>confirmed</strong>: {{ user.email }}</h5>
+          </span>
+        </div>
+      </div>
+
+{% endif %}
+
+{% if user.isATeacher%}
+    <div class="row">
+        <div class="card-panel green accent-4">
+          <span class="white-text"><h5><span class="white-text">You are home room teacher of {{ user.standard }}-{{ user.section }} at {{ user.school }}</span></h5>
+          </span>
+        </div>
+{% endif %}
+
+{% if not user.isATeacher %}
+    <div class="row">
+        <div class="card-panel green accent-4">
+          <span class="white-text"><h5><span class="white-text">You are a student of {{ user.standard }}-{{ user.section }} at {{ user.school }}</span></h5>
+          </span>
+        </div>
+{% endif %}
+<div class="bordering">
+	<h5>Update Your Details!</h5>
+	<form method="POST" action="/update-details/" enctype="multipart/form-data">
+		<div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input id="icon_prefix" type="email" name="email" value="{{ user.email }}" class="validate">
+          <label for="icon_prefix">Email</label>
+        </div>
+           		<div class="input-field col s12">
+           			<i class="material-icons prefix">clear_all</i>
+    	<select name="standard">
+      	<option value="{{ user.standard }}" >Choose your standard</option>
+      	<option value="1">Class 1</option>
+      	<option value="2">Class 2</option>
+      	<option value="3">Class 3</option>
+      	<option value="4">Class 4</option>
+      	<option value="5">Class 5</option>
+      	<option value="6">Class 6</option>
+      	<option value="7">Class 7</option>
+      	<option value="8">Class 8</option>
+      	<option value="9">Class 9</option>
+      	<option value="10">Class 10</option>
+      	<option value="11">Class 11</option>
+      	<option value="12">Class 12</option>
+    	</select>
+    	<label>Standard</label>
+  		</div>
+		<div class="input-field col s12">
+          <i class="material-icons prefix">school</i>
+          <input id="icon_prefix" type="text" value="{{ user.section }}" name="section" class="validate">
+          <label for="icon_prefix">Section</label>
+        </div>
+		<div class="input-field col s12">
+          <i class="material-icons prefix">account_balance</i>
+          <input id="icon_prefix" type="text" name="school" value="{{ user.school }}" class="validate">
+          <label for="icon_prefix">School</label>
+        </div>
+          <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Update
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+</div>
+</div>
+
+{% endblock %}

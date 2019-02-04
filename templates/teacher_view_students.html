@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}View Homework{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+
+<body>
+	<div class="cont">
+<h1>{{ homework.name}} By {{ homework.teachername }} ({{ homework.subject}})</h1> 
+<br>
+All the students who were to submit
+{% for student in students %}
+{% if student.id in submitted%}
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">check</i><span class="green-text"> {{ student.name }} ({{ student.standard}}-{{ student.section }})</span></div>
+      <div class="collapsible-body">
+      	<span>
+      		<p>
+      		The user has submitted his/her homework. Please check it out using the below link
+      		<br>
+         	File: <a href='/showfiles/submission/{{ student.filename1}}/' target="_blank">{{ student.originalfilename1 }} </a>
+            <br></p>
+            {% if student.marks == 0 %}
+            <form method="post" action="/teacher-update-marks/{{ student.id }}/{{ homework.id }}/">
+              <div class='row'>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">assignment</i>
+                <input class='validate' type='number' name='marks' id='marks' />
+                <label for='marks'>Enter the marks</label>
+              </div>
+              <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Update Marks
+              <i class="material-icons right">send</i>
+          </button>
+            </div>
+            </form>
+            {% endif %}
+             {% if student.marks != 0 %}
+             Marks Alloted: {{ student.marks }}
+             {% endif %}
+      </span>
+  	</div>
+    </li>
+  </ul>
+ {% endif %}
+
+ {% if student.id not in submitted %}
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">close</i><span class="red-text"> {{ student.name }} ({{ student.standard}}-{{ student.section }})</span></div>
+      <div class="collapsible-body">
+      	<span>
+      		<p>
+      		The user has not submitted his/her homework
+      </span>
+  	</div>
+    </li>
+  </ul>
+ {% endif%}
+
+{% endfor %}
+</div>
+</body>
+
+
+{% endblock %}
