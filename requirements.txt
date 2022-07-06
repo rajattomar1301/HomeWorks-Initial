@@ -33,7 +33,7 @@ itsdangerous==0.24
 Jinja2==2.8
 jmespath==0.9.3
 jsonrpclib==0.1.7
-lxml==3.5.0
+lxml==4.9.1
 MarkupSafe==1.0
 matplotlib==1.5.1
 mime==0.1.0
